@@ -7,12 +7,13 @@ public class CalcMethod_impl implements CalcMethod {
     private double storedNumber;
 
     public CalcMethod_impl() {
-        this.currentNumber = 0;
-        this.storedNumber = 0;
+        clear();
     }
 
 
-
-
-
+    @Override
+    public void clear() {
+        this.storedNumber = 0;
+        this.currentNumber = 0;
+    }
 }
