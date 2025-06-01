@@ -11,7 +11,6 @@ public class CalcMethod_impl implements CalcMethod {
     private String oprator;
 
     public CalcMethod_impl() {
-
         clear();
     }
 
@@ -25,20 +24,21 @@ public class CalcMethod_impl implements CalcMethod {
 
     // calc method
     private void calcResult(){
-        while (!oprator.equals("=")) {
-            if (oprator.equals("+")) {
-                result = storedNumber + currentNumber;
-            } else if (oprator.equals("-")) {
-                result = storedNumber - currentNumber;
-            } else if (oprator.equals("*")) {
-                result = storedNumber * currentNumber;
-            } else if (oprator.equals("/")) {
-                result = storedNumber / currentNumber;
-                if((currentNumber == 0) || (storedNumber == 0)) {
-                    result = 0;
-                }
+        if (oprator.isEmpty()) {
+            return;
+        } if (oprator.equals("+")) {
+            result = storedNumber + currentNumber;
+        } else if (oprator.equals("-")) {
+            result = storedNumber - currentNumber;
+        } else if (oprator.equals("*")) {
+            result = storedNumber * currentNumber;
+        } else if (oprator.equals("/")) {
+            result = storedNumber / currentNumber;
+            if((currentNumber == 0) || (storedNumber == 0)) {
+                result = 0;
             }
         }
+        currentNumber = result;
     }
 
 

@@ -292,10 +292,6 @@
                 android:textColor="@color/MaastrichtBlue"
                 android:backgroundTint="@color/GreenSheen"
                 />
-
-
-
-
         </GridLayout>
     </LinearLayout>
 </LinearLayout>
