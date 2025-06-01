@@ -5,9 +5,13 @@ import com.example.trybasiccalclator1.CalcMethod;
 public class CalcMethod_impl implements CalcMethod {
     private double currentNumber;
     private double storedNumber;
-    private String operator;
+    private double result;
+    private Operator_impl operatorImpl;
+    private boolean isNum;
+    private String oprator;
 
     public CalcMethod_impl() {
+
         clear();
     }
 
@@ -15,10 +19,28 @@ public class CalcMethod_impl implements CalcMethod {
     public void clear() {
         this.storedNumber = 0;
         this.currentNumber = 0;
-        this.operator = "";
+        this.result = 0;
+        this.isNum = true;
     }
 
-    private void calcResult(){}
+    // calc method
+    private void calcResult(){
+        while (!oprator.equals("=")) {
+            if (oprator.equals("+")) {
+                result = storedNumber + currentNumber;
+            } else if (oprator.equals("-")) {
+                result = storedNumber - currentNumber;
+            } else if (oprator.equals("*")) {
+                result = storedNumber * currentNumber;
+            } else if (oprator.equals("/")) {
+                result = storedNumber / currentNumber;
+                if((currentNumber == 0) || (storedNumber == 0)) {
+                    result = 0;
+                }
+            }
+        }
+    }
 
-    private void applyOperator(){}
+
+
 }
