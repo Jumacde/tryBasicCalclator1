@@ -38,8 +38,20 @@ public class CalcMethod_impl implements CalcMethod {
                         ? String.valueOf((long) storedDigit)
                         : String.valueOf(storedDigit);
                 display = y + " " + oprator + " " + chosenDigit;
-
+            } else {
+                display = String.valueOf(chosenDigit);
             }
+        } else {
+            currentDigit = chosenDigit * 10;
+
+            if (display.equals("0") && chosenDigit != 0) {
+                display = String.valueOf(chosenDigit);
+            } else if (!display.equals("0") && chosenDigit != 0) {
+                display += chosenDigit;
+            } else if (display.equals("0") && chosenDigit == 0) {
+                
+            }
+
         }
     }
 
