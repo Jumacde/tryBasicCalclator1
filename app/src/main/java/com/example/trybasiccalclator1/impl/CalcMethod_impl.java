@@ -22,11 +22,17 @@ public class CalcMethod_impl implements CalcMethod {
         this.isNum = true;
     }
 
+    // process chosen number
+    @Override
+    public void processDigit(int digit) {
+
+    }
+
     // calc method
     private void calcResult(){
         if (oprator.isEmpty()) {
             return;
-        } if (oprator.equals("+")) {
+        } else if (oprator.equals("+")) {
             result = storedNumber + currentNumber;
         } else if (oprator.equals("-")) {
             result = storedNumber - currentNumber;
