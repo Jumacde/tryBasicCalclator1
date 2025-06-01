@@ -21,6 +21,33 @@ public class Calc_impl implements Calc {
         this.isDigit = true;
     }
 
+    // process the current digit
+    @Override
+    public void processDigit(double digit) {
+        if (isDigit) {
+            currentDigit = digit;
+            isDigit = false;
+            if (!operator.isEmpty()) {
+                String y;
+                if (storedDigit == (long) storedDigit) {
+                    y = String.valueOf((long) storedDigit);
+                } else {
+                    y = String.valueOf(storedDigit);
+                }
+            }
+        }
+
+    }
+
+    // process the current operator
+    @Override
+    public void processOperator(String currentOp) {
+        if (!operator.isEmpty() && !isDigit) {
+
+        }
+
+    }
+
     // calc method
     private void calcResult() {
         if (operator.isEmpty()) {
@@ -41,4 +68,6 @@ public class Calc_impl implements Calc {
             }
         }
     }
+
+
 }
