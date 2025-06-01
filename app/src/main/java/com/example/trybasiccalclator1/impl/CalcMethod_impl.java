@@ -29,14 +29,15 @@ public class CalcMethod_impl implements CalcMethod {
 
     // process chosen number
     @Override
-    public void processDigit(int x) {
+    public void processDigit(int chosenDigit) {
         if (isDigit) {
-            currentDigit = x;
+            currentDigit = chosenDigit;
             isDigit = false;
             if (!oprator.isEmpty()) {
                 String y = (storedDigit ==(long)currentDigit)
                         ? String.valueOf((long) storedDigit)
                         : String.valueOf(storedDigit);
+                display = y + " " + oprator + " " + chosenDigit;
 
             }
         }
