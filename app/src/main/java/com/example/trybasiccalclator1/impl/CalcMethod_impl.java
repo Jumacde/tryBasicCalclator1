@@ -3,12 +3,15 @@ package com.example.trybasiccalclator1.impl;
 import com.example.trybasiccalclator1.CalcMethod;
 
 public class CalcMethod_impl implements CalcMethod {
-    private double currentNumber;
-    private double storedNumber;
+    private double currentDigit;
+    private double storedDigit;
     private double result;
-    private Operator_impl operatorImpl;
     private boolean isDigit;
     private String oprator;
+    private String display;
+
+    private Operator_impl operatorImpl;
+    private Display_impl displayImpl;
 
     public CalcMethod_impl() {
         clear();
@@ -16,17 +19,26 @@ public class CalcMethod_impl implements CalcMethod {
 
     @Override
     public void clear() {
-        this.storedNumber = 0;
-        this.currentNumber = 0;
+        this.storedDigit = 0;
+        this.currentDigit = 0;
         this.result = 0;
         this.isDigit = true;
+        this.oprator = operatorImpl.getOperator();
+        this.display = displayImpl.getDisplay();
     }
 
     // process chosen number
     @Override
-    public void processDigit(int digit) {
+    public void processDigit(int x) {
         if (isDigit) {
+            currentDigit = x;
+            isDigit = false;
+            if (!oprator.isEmpty()) {
+                String y = (storedDigit ==(long)currentDigit)
+                        ? String.valueOf((long) storedDigit)
+                        : String.valueOf(storedDigit);
 
+            }
         }
     }
 
@@ -35,18 +47,18 @@ public class CalcMethod_impl implements CalcMethod {
         if (oprator.isEmpty()) {
             return;
         } else if (oprator.equals("+")) {
-            result = storedNumber + currentNumber;
+            result = storedDigit + currentDigit;
         } else if (oprator.equals("-")) {
-            result = storedNumber - currentNumber;
+            result = storedDigit - currentDigit;
         } else if (oprator.equals("*")) {
-            result = storedNumber * currentNumber;
+            result = storedDigit * currentDigit;
         } else if (oprator.equals("/")) {
-            result = storedNumber / currentNumber;
-            if((currentNumber == 0) || (storedNumber == 0)) {
+            result = storedDigit / currentDigit;
+            if((currentDigit == 0) || (storedDigit == 0)) {
                 result = 0;
             }
         }
-        currentNumber = result;
+        currentDigit = result;
     }
 
 
