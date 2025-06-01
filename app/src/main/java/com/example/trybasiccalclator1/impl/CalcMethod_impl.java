@@ -7,7 +7,7 @@ public class CalcMethod_impl implements CalcMethod {
     private double storedNumber;
     private double result;
     private Operator_impl operatorImpl;
-    private boolean isNum;
+    private boolean isDigit;
     private String oprator;
 
     public CalcMethod_impl() {
@@ -19,13 +19,15 @@ public class CalcMethod_impl implements CalcMethod {
         this.storedNumber = 0;
         this.currentNumber = 0;
         this.result = 0;
-        this.isNum = true;
+        this.isDigit = true;
     }
 
     // process chosen number
     @Override
     public void processDigit(int digit) {
+        if (isDigit) {
 
+        }
     }
 
     // calc method
