@@ -35,8 +35,17 @@ public class MainActivity extends AppCompatActivity {
         eq = findViewById(R.id.equal);
 
         operator = new Operator_impl(new CalcLogic_impl(null, null), new Display_impl(null, null));
-        calcLogic = new CalcLogic_impl(new Operator_impl(null, null), new Display_impl(null, null));
+        calcLogic = new CalcLogic_impl(new Display_impl(null, null), new Operator_impl(null, null));
         display = new Display_impl(new Operator_impl(null, null), new CalcLogic_impl(null, null));
+
+        display.callMethods();// updateDisplay
+
+        pl.setOnClickListener(v -> handleOperatorClick((Button)v, "+"));
+        mi.setOnClickListener(v -> handleOperatorClick((Button)v, "-"));
+        mu.setOnClickListener(v -> handleOperatorClick((Button)v, "*"));
+        di.setOnClickListener(v -> handleOperatorClick((Button)v, "/"));
+        eq.setOnClickListener(v -> handleOperatorClick((Button)v, "="));
+
 
         /*
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
