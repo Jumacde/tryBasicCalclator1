@@ -17,4 +17,12 @@ public class CalcLogic_impl implements CalcLogic {
         this.sDigit = 0;
         this.isDigit = true;
     }
+
+    /**
+     * process the inputted integer and decimal number.
+     * */
+    public void appendDigit(int digit){
+
+
+    }
 }

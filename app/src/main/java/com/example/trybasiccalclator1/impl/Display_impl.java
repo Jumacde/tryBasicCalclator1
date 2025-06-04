@@ -13,4 +13,10 @@ public class Display_impl implements Display {
     public void clear() {
         this.display = "0";
     }
+
+
+    @Override
+    public String getDisplay() {
+        return display;
+    }
 }
