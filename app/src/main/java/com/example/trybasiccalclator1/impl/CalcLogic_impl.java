@@ -9,6 +9,9 @@ public class CalcLogic_impl implements CalcLogic {
     private Operator_impl operatorImpl;
     private Display_impl displayImpl;
 
+    private String display = displayImpl.getDisplay();
+    private String operator = operatorImpl.getOperator();
+
     public CalcLogic_impl(Display_impl displayImpl, Operator_impl operatorImpl) {
         this.operatorImpl = operatorImpl;
         this.displayImpl = displayImpl;
@@ -27,9 +30,6 @@ public class CalcLogic_impl implements CalcLogic {
      * */
     @Override
     public void appendDigit(int digit){
-        String display = displayImpl.getDisplay();
-        String operator = operatorImpl.getOperator();
-
         if (isNum) { // if a digit is entered
             cNum = digit;
             // input digit is defect
@@ -56,6 +56,33 @@ public class CalcLogic_impl implements CalcLogic {
                 // nothing to do.
             }
         }
-
     }
+
+    /**
+     * calculate method for each operator
+     * **/
+    private void calcalteResult() {
+        double calcResult = 0;
+        if (operator.isEmpty()) {
+            return;
+        }
+        if (operator.equals("+")) {
+            calcResult = sNum + cNum;
+        } else if (operator.equals("-")) {
+            calcResult = sNum - cNum;
+        } else if (operator.equals("*")) {
+            calcResult = sNum * cNum;
+        } else if (operator.equals("/")) {
+            if (cNum != 0 && sNum != 0) {
+                calcResult = sNum / cNum;
+            } else {
+                calcResult = 0;
+                display = "0";
+                clear();
+                return;
+            }
+
+        }
+    }
+
 }
