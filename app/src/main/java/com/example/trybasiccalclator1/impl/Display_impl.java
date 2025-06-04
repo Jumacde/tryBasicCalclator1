@@ -8,8 +8,14 @@ public class Display_impl implements Display {
     private CalcLogic_impl calcLogicImpl;
     private Operator_impl operatorImpl;
 
+    private double sNum = calcLogicImpl.getSNum();
+    private double cNum = calcLogicImpl.getCNum();
+    private boolean isNum = calcLogicImpl.getIsNum();
 
-    public Display_impl(Operator_impl operatorImpl) {
+    private String operator = operatorImpl.getOperator();
+
+    public Display_impl(Operator_impl operatorImp, CalcLogic_impl calcLogicImpl) {
+        this.calcLogicImpl = calcLogicImpl;
         this.operatorImpl = operatorImpl;
         clear();
     }
@@ -30,6 +36,18 @@ public class Display_impl implements Display {
      * */
     @Override
     public void callMethods() {
+        updateDisplay();
+    }
 
+    private void updateDisplay( ) {
+        String initSNum = String.valueOf(sNum);
+        String initCNum = String.valueOf(cNum);
+
+        if (operator.equals("=")) {
+            String result = String.valueOf(cNum);
+            display = sNum + " "+ operator + " " + cNum + " = " + result;
+        } else {
+            display = String.valueOf(cNum);
+        }
     }
 }
