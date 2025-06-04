@@ -11,6 +11,7 @@ public class Operator_impl implements Operator {
     private boolean isNum = calcLogicImpl.getIsNum();
     private double sNum = calcLogicImpl.getSNum();
     private double cNum = calcLogicImpl.getCNum();
+    private String display = displayImpl.getDisplay();
 
     public Operator_impl() {
 
@@ -39,8 +40,23 @@ public class Operator_impl implements Operator {
             // new entered operator is saved
             operator = op;
             updateDisplay();
+        } else if (op.equals("=")) {
+            String initSNum = String.valueOf(sNum);
+            String initCNum = String.valueOf(cNum);
+            String oldOperator = operator;
+            updateDisplay();
+            calcLogicImpl.callMethods();
+            display = initSNum + " " + oldOperator + " " + initCNum + " " + "=";
 
-
+            operator = "";
+            sNum = cNum;
+            isNum = true;
+            updateDisplay();
+        } else {
+            operator = op;
+            sNum = cNum;
+            isNum = true;
+            updateDisplay();
         }
 
     }
