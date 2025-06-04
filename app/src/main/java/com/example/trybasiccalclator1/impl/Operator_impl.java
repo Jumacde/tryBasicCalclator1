@@ -38,9 +38,23 @@ public class Operator_impl implements Operator {
             isNum = true;
             // new entered operator is saved
             operator = op;
+            updateDisplay();
 
 
         }
 
     }
+
+    /**
+     * to call other classes private methods from this class
+     * */
+    @Override
+    public void callMethods(){
+        updateDisplay();
+    }
+
+    /**
+     * setting for the showing numbers on the display
+     * */
+    private void updateDisplay() {}
 }
