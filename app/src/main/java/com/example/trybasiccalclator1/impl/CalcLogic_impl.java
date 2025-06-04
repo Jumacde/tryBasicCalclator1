@@ -73,16 +73,16 @@ public class CalcLogic_impl implements CalcLogic {
         } else if (operator.equals("*")) {
             calcResult = sNum * cNum;
         } else if (operator.equals("/")) {
-            if (cNum != 0 && sNum != 0) {
-                calcResult = sNum / cNum;
-            } else {
+            if (cNum == 0 && sNum == 0) {
                 calcResult = 0;
                 display = "0";
                 clear();
                 return;
+            } else {
+                calcResult = sNum / cNum;
             }
-
         }
+        cNum = calcResult;
     }
 
 }
