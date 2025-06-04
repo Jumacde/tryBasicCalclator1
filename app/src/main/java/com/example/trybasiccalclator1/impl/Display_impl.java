@@ -24,4 +24,12 @@ public class Display_impl implements Display {
     public String getDisplay() {
         return display;
     }
+
+    /**
+     * to call other classes private methods from this class
+     * */
+    @Override
+    public void callMethods() {
+
+    }
 }
