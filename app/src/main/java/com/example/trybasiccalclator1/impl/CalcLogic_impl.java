@@ -3,26 +3,59 @@ package com.example.trybasiccalclator1.impl;
 import com.example.trybasiccalclator1.CalcLogic;
 
 public class CalcLogic_impl implements CalcLogic {
-    private double cDigit; // current digit
-    private double sDigit; // stored digit
-    private boolean isDigit; // to allow input digit
+    private double cNum; // current number
+    private double sNum; // stored number
+    private boolean isNum; // to allow input number
+    private Operator_impl operatorImpl;
+    private Display_impl displayImpl;
 
-    public CalcLogic_impl() {
+    public CalcLogic_impl(Display_impl displayImpl, Operator_impl operatorImpl) {
+        this.operatorImpl = operatorImpl;
+        this.displayImpl = displayImpl;
         clear();
     }
 
     @Override
     public void clear() {
-        this.cDigit = 0;
-        this.sDigit = 0;
-        this.isDigit = true;
+        this.cNum = 0;
+        this.sNum = 0;
+        this.isNum = true;
     }
 
     /**
-     * process the inputted integer and decimal number.
+     * process the inputted integer.
      * */
+    @Override
     public void appendDigit(int digit){
+        String display = displayImpl.getDisplay();
+        String operator = operatorImpl.getOperator();
 
+        if (isNum) { // if a digit is entered
+            cNum = digit;
+            // input digit is defect
+            isNum = false;
+
+
+            if (!operator.isEmpty()) { // set to show the calculate step.
+                display = String.valueOf(sNum) + " " + operator + " " + digit;
+            } else {
+                display = String.valueOf(digit);
+            }
+        } else { // add a digit to the current number
+            cNum = cNum * 10 + digit; // add a digit using by multiplication 10.
+            if (display.equals("0") && digit != 0) { // if a nun zero number is after 0 entered
+                display = String.valueOf(digit); // update display from 0 to the current number
+            } else if (display.endsWith(" + ")
+                    || display.endsWith(" - ")
+                    || display.endsWith(" * ")
+                    || display.endsWith(" / ")) {
+                display += digit;
+            } else if (!display.equals("0")) {
+                display += digit;
+            } else if (display.equals("0") && digit == 0) {
+                // nothing to do.
+            }
+        }
 
     }
 }

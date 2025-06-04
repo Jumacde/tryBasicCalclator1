@@ -10,6 +10,11 @@ public class Operator_impl implements Operator {
     }
 
     @Override
+    public String getOperator() {
+        return operator;
+    }
+
+    @Override
     public void clear() {
         this.operator = "";
     }
