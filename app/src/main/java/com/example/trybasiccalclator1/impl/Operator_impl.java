@@ -13,8 +13,9 @@ public class Operator_impl implements Operator {
     private double cNum = calcLogicImpl.getCNum();
     private String display = displayImpl.getDisplay();
 
-    public Operator_impl() {
-
+    public Operator_impl(CalcLogic_impl calcLogicImpl, Display_impl displayImpl) {
+        this.calcLogicImpl = calcLogicImpl;
+        this.displayImpl = displayImpl;
         clear();
     }
 
