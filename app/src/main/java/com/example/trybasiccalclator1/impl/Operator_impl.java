@@ -43,7 +43,7 @@ public class Operator_impl implements Operator {
         } else if (op.equals("=")) {
             String initSNum = String.valueOf(sNum);
             String initCNum = String.valueOf(cNum);
-            String oldOperator = operator; // to save the current operator
+            String oldOperator = operator; // keep to save the current operator
             updateDisplay();
             calcLogicImpl.callMethods();
             display = initSNum + " " + oldOperator + " " + initCNum + " " + "=";
