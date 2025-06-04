@@ -25,6 +25,21 @@ public class CalcLogic_impl implements CalcLogic {
         this.isNum = true;
     }
 
+    @Override
+    public boolean getIsNum() {
+        return isNum;
+    }
+
+    @Override
+    public double getCNum() {
+        return cNum;
+    }
+
+    @Override
+    public double getSNum() {
+        return sNum;
+    }
+
     /**
      * process the inputted integer.
      * */
@@ -59,6 +74,14 @@ public class CalcLogic_impl implements CalcLogic {
     }
 
     /**
+     * to call other classes private methods from this class
+     * */
+    @Override
+    public void callMethods() {
+        calcalteResult();
+    }
+
+    /**
      * calculate method for each operator
      * **/
     private void calcalteResult() {
@@ -84,5 +107,7 @@ public class CalcLogic_impl implements CalcLogic {
         }
         cNum = calcResult;
     }
+
+
 
 }
