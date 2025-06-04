@@ -72,5 +72,14 @@ public class Operator_impl implements Operator {
     /**
      * setting for the showing numbers on the display
      * */
-    private void updateDisplay() {}
+    private void updateDisplay() {
+        updateOperator();
+    }
+
+    /**
+     * set the showing of the calculate-processing using by stored number and operator
+     * */
+    private void updateOperator() {
+        display = String.valueOf(sNum) + " " + operator + " ";
+    }
 }

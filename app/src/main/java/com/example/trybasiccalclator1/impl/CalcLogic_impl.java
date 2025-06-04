@@ -50,7 +50,6 @@ public class CalcLogic_impl implements CalcLogic {
             // input digit is defect
             isNum = false;
 
-
             if (!operator.isEmpty()) { // set to show the calculate step.
                 display = String.valueOf(sNum) + " " + operator + " " + digit;
             } else {
