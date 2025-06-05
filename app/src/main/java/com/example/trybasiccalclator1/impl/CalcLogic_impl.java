@@ -8,13 +8,14 @@ public class CalcLogic_impl implements CalcLogic {
     private boolean isNum; // to allow input number
     private Operator_impl operatorImpl;
     private Display_impl displayImpl;
-
-    private String display = displayImpl.getDisplay();
-    private String operator = operatorImpl.getOperator();
+    private String display;
+    private String operator;
 
     public CalcLogic_impl(Display_impl displayImpl, Operator_impl operatorImpl) {
         this.operatorImpl = operatorImpl;
         this.displayImpl = displayImpl;
+        this.display = displayImpl.getDisplay();
+        this.operator = operatorImpl.getOperator();
         clear();
     }
 
@@ -45,6 +46,8 @@ public class CalcLogic_impl implements CalcLogic {
      * */
     @Override
     public void appendDigit(int digit){
+        this.display = displayImpl.getDisplay(); // get the last display
+        this.operator = operatorImpl.getOperator(); // get the last operator
         if (isNum) { // if a digit is entered
             cNum = digit;
             // input digit is defect

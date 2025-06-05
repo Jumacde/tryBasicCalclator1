@@ -13,8 +13,8 @@ import com.example.trybasiccalclator1.impl.Display_impl;
 import com.example.trybasiccalclator1.impl.Operator_impl;
 
 public class MainActivity extends AppCompatActivity {
-    TextView textView;
-    Button pl, mi, mu, di, eq;
+    private TextView textView;
+    private Button pl, mi, mu, di, eq;
     String op;
 
     private CalcLogic calcLogic;
@@ -23,21 +23,15 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        operator = new Operator_impl(
-                new CalcLogic_impl(null, null),
-                new Display_impl(null, null));
-        calcLogic = new CalcLogic_impl(
-                new Display_impl(null, null),
-                new Operator_impl(null, null));
-        display = new Display_impl(
-                new Operator_impl(null, null),
-                new CalcLogic_impl(null, null)
-                );
-
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
+        calcLogic = new CalcLogic_impl(display, operator);
+        operator = new Operator_impl(calcLogic, display);
+        display = new Display_impl(operator, calcLogic);
+
+        textView = findViewById(R.id.text);
         pl = findViewById(R.id.plass);
         mi = findViewById(R.id.min);
         mu = findViewById(R.id.mul);
@@ -52,17 +46,13 @@ public class MainActivity extends AppCompatActivity {
         mu.setOnClickListener(v -> clickOperator((Button)v, "*"));
         di.setOnClickListener(v -> clickOperator((Button)v, "/"));
         eq.setOnClickListener(v -> clickOperator((Button)v, "="));
-
-
-        /*
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-
-         */
     }
+
+    private void clickOperator(Button button, String op) {
+        operator.appendOperator(op);
+        operator.callUpdateDisplay();
+    }
+
     private void press00(View view) {
         calcLogic.appendDigit(0);
         calcLogic.appendDigit(0);
@@ -121,14 +111,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void pressAc(View view) {
         calcLogic.clear();
+        display.clear();
+        operator.clear();
         display.callUpdateDisplay();
     }
-
-    private void clickOperator(Button button, String oprator) {
-        operator.appendOperator(op);
-        operator.callUpdateDisplay();
-    }
-
 
     private void updateDisplay() {
         textView.setText(display.getDisplay());
