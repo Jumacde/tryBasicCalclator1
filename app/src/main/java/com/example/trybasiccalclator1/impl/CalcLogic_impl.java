@@ -72,6 +72,7 @@ public class CalcLogic_impl implements CalcLogic {
             } else if (display.equals("0") && digit == 0) {
                 // nothing to do.
             }
+            displayImpl.setDisplay(display); // Notify displayImpl of the display update
         }
     }
 
@@ -87,6 +88,8 @@ public class CalcLogic_impl implements CalcLogic {
      * calculate method for each operator
      * **/
     private void calcalteResult() {
+        this.display = displayImpl.getDisplay(); // get the last display
+        this.operator = operatorImpl.getOperator(); // get the last operator
         double calcResult = 0;
         if (operator.isEmpty()) {
             return;
@@ -102,12 +105,14 @@ public class CalcLogic_impl implements CalcLogic {
                 calcResult = 0;
                 display = "0";
                 clear();
+                displayImpl.setDisplay(display);
                 return;
             } else {
                 calcResult = sNum / cNum;
             }
         }
         cNum = calcResult;
+        displayImpl.setDisplay(String.valueOf(cNum)); // Notify displayImpl of the display update
     }
 
 

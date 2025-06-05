@@ -8,15 +8,19 @@ public class Operator_impl implements Operator {
     private CalcLogic_impl calcLogicImpl;
     private Display_impl displayImpl;
 
-    private boolean isNum = calcLogicImpl.getIsNum();
-    private double sNum = calcLogicImpl.getSNum();
-    private double cNum = calcLogicImpl.getCNum();
-    private String display = displayImpl.getDisplay();
+    private boolean isNum;
+    private double sNum;
+    private double cNum;
+    private String display;
 
     public Operator_impl(CalcLogic_impl calcLogicImpl, Display_impl displayImpl) {
         this.calcLogicImpl = calcLogicImpl;
         this.displayImpl = displayImpl;
         clear();
+        this.isNum = calcLogicImpl.getIsNum();
+        this.sNum = calcLogicImpl.getSNum();
+        this.cNum = calcLogicImpl.getCNum();
+        this.display = displayImpl.getDisplay();
     }
 
     @Override
@@ -31,6 +35,11 @@ public class Operator_impl implements Operator {
 
     @Override
     public void appendOperator(String op) {
+        this.isNum = calcLogicImpl.getIsNum(); // get the last isNum
+        this.sNum = calcLogicImpl.getSNum(); // get the last sNum
+        this.cNum = calcLogicImpl.getCNum(); // get the last cNum
+        this.display = displayImpl.getDisplay(); // get the last display
+
         if (!operator.isEmpty() && !isNum) {
             // perform the calculation with the previous operator and  the result store in the current number
             calcLogicImpl.callMethods();
@@ -48,6 +57,7 @@ public class Operator_impl implements Operator {
             updateDisplay();
             calcLogicImpl.callMethods();
             display = initSNum + " " + oldOperator + " " + initCNum + " " + "=";
+            displayImpl.setDisplay(display); // Notify displayImpl of the display update
 
             operator = "";
             sNum = cNum;
@@ -81,6 +91,8 @@ public class Operator_impl implements Operator {
      * set the showing of the calculate-processing using by stored number and operator
      * */
     private void updateOperator() {
+        this.sNum = calcLogicImpl.getSNum(); // get the last sNum
         display = String.valueOf(sNum) + " " + operator + " ";
+        displayImpl.setDisplay(display); // Notify displayImpl of the display update
     }
 }

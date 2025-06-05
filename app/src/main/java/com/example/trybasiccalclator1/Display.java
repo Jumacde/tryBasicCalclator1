@@ -3,6 +3,7 @@ package com.example.trybasiccalclator1;
 public interface Display {
     void clear();
     String getDisplay();
+    void setDisplay(String display);
     /**
      * to call other classes private methods from this class
      * */

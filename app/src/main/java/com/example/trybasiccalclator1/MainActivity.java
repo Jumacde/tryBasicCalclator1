@@ -17,19 +17,18 @@ public class MainActivity extends AppCompatActivity {
     private Button pl, mi, mu, di, eq;
     String op;
 
-    private CalcLogic calcLogic;
-    private Operator operator;
-    private Display display;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        calcLogic = new CalcLogic_impl(display, operator);
-        operator = new Operator_impl(calcLogic, display);
-        display = new Display_impl(operator, calcLogic);
+        final CalcLogic_impl calcLogicImpl;
+        calcLogicImpl = new CalcLogic_impl(null, null);
+        final Operator_impl operatorImpl;
+        operatorImpl = new Operator_impl(null, null);
+        final Display_impl displayImpl;
+        displayImpl = new Display_impl(null, null);
 
         textView = findViewById(R.id.text);
         pl = findViewById(R.id.plass);

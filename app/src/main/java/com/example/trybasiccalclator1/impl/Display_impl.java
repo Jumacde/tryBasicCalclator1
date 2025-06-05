@@ -8,16 +8,19 @@ public class Display_impl implements Display {
     private CalcLogic_impl calcLogicImpl;
     private Operator_impl operatorImpl;
 
-    private double sNum = calcLogicImpl.getSNum();
-    private double cNum = calcLogicImpl.getCNum();
-    private boolean isNum = calcLogicImpl.getIsNum();
+    private double sNum;
+    private double cNum;
+    private boolean isNum;
+    private String operator;
 
-    private String operator = operatorImpl.getOperator();
-
-    public Display_impl(Operator_impl operatorImp, CalcLogic_impl calcLogicImpl) {
+    public Display_impl(Operator_impl operatorImpl, CalcLogic_impl calcLogicImpl) {
         this.calcLogicImpl = calcLogicImpl;
         this.operatorImpl = operatorImpl;
         clear();
+        this.sNum = calcLogicImpl.getSNum();
+        this.cNum = calcLogicImpl.getCNum();
+        this.isNum = calcLogicImpl.getIsNum();
+        this.operator = operatorImpl.getOperator();
     }
 
     @Override
@@ -31,6 +34,11 @@ public class Display_impl implements Display {
         return display;
     }
 
+    @Override
+    public void setDisplay(String display) {
+        this.display = display;
+    }
+
     /**
      * to call other classes private methods from this class
      * */
@@ -40,6 +48,10 @@ public class Display_impl implements Display {
     }
 
     private void updateDisplay( ) {
+        this.sNum = calcLogicImpl.getSNum(); // get the last sNum
+        this.cNum = calcLogicImpl.getCNum(); // get the last cNum
+        this.operator = operatorImpl.getOperator(); // get the last operator
+
         String initSNum = String.valueOf(sNum);
         String initCNum = String.valueOf(cNum);
 
