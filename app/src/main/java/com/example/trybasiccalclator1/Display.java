@@ -7,7 +7,7 @@ public interface Display {
     void clear();
     String getDisplay();
     void setDisplay(String display);
-    void setDependencies(Operator_impl operatorImpl, CalcLogic_impl calcLogicImpl)
+    void setDependencies(Operator_impl operatorImpl, CalcLogic_impl calcLogicImpl);
     /**
      * to call other classes private methods from this class
      * */

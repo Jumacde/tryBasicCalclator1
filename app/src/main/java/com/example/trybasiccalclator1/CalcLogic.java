@@ -10,7 +10,7 @@ public interface CalcLogic {
     double getCNum();
     double getSNum();
 
-    void setDependencies(Display_impl displayImpl, Operator_impl operatorImpl)
+    void setDependencies(Display_impl displayImpl, Operator_impl operatorImpl);
 
     /**
      * process the inputted integer and decimal number.
