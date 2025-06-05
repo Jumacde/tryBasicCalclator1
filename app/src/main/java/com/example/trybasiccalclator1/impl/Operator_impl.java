@@ -66,7 +66,7 @@ public class Operator_impl implements Operator {
      * to call other classes private methods from this class
      * */
     @Override
-    public void callMethods(){
+    public void callUpdateDisplay(){
         updateDisplay();
     }
 

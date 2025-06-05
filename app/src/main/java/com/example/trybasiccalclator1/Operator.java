@@ -7,5 +7,5 @@ public interface Operator {
     /**
      * to call other classes private methods from this class
      * */
-    void callMethods();
+    void callUpdateDisplay();
 }
