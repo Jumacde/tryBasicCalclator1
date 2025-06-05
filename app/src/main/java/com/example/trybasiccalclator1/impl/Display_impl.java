@@ -39,6 +39,16 @@ public class Display_impl implements Display {
         this.display = display;
     }
 
+    @Override
+    public void setDependencies(Operator_impl operatorImpl, CalcLogic_impl calcLogicImpl) {
+        this.operatorImpl = operatorImpl;
+        this.calcLogicImpl = calcLogicImpl;
+        this.sNum = calcLogicImpl.getSNum();
+        this.cNum = calcLogicImpl.getCNum();
+        this.isNum = calcLogicImpl.getIsNum();
+        this.operator = operatorImpl.getOperator();
+    }
+
     /**
      * to call other classes private methods from this class
      * */

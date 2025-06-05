@@ -17,6 +17,10 @@ public class MainActivity extends AppCompatActivity {
     private Button pl, mi, mu, di, eq;
     String op;
 
+    CalcLogic calcLogic;
+    Operator operator;
+    Display display;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,11 +28,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         final CalcLogic_impl calcLogicImpl;
-        calcLogicImpl = new CalcLogic_impl(null, null);
         final Operator_impl operatorImpl;
-        operatorImpl = new Operator_impl(null, null);
         final Display_impl displayImpl;
+
+        calcLogicImpl = new CalcLogic_impl(null, null);
+        operatorImpl = new Operator_impl(null, null);
         displayImpl = new Display_impl(null, null);
+
+        calcLogicImpl.setDependencies(displayImpl, operatorImpl);
+        operatorImpl.setDependencies(calcLogicImpl, displayImpl);
+        displayImpl.setDependencies(operatorImpl, calcLogicImpl);
+
+        calcLogic = calcLogicImpl;
+        operator = operatorImpl;
+        display = displayImpl;
 
         textView = findViewById(R.id.text);
         pl = findViewById(R.id.plass);

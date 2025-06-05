@@ -41,6 +41,14 @@ public class CalcLogic_impl implements CalcLogic {
         return sNum;
     }
 
+    @Override
+    public void setDependencies(Display_impl displayImpl, Operator_impl operatorImpl) {
+        this.displayImpl = displayImpl;
+        this.operatorImpl = operatorImpl;
+        this.display = displayImpl.getDisplay();
+        this.operator = operatorImpl.getOperator();
+    }
+
     /**
      * process the inputted integer.
      * */

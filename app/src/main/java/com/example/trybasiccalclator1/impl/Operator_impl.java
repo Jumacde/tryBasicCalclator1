@@ -72,6 +72,16 @@ public class Operator_impl implements Operator {
 
     }
 
+    @Override
+    public void setDependencies(CalcLogic_impl calcLogicImpl, Display_impl displayImpl) {
+        this.calcLogicImpl = calcLogicImpl;
+        this.displayImpl = displayImpl;
+        this.isNum = calcLogicImpl.getIsNum();
+        this.sNum = calcLogicImpl.getSNum();
+        this.cNum = calcLogicImpl.getCNum();
+        this.display = displayImpl.getDisplay();
+    }
+
     /**
      * to call other classes private methods from this class
      * */
