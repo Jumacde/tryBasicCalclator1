@@ -27,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        final CalcLogic_impl calcLogicImpl;
+        /*
+        *         final CalcLogic_impl calcLogicImpl;
         final Operator_impl operatorImpl;
         final Display_impl displayImpl;
 
@@ -58,9 +59,11 @@ public class MainActivity extends AppCompatActivity {
         mu.setOnClickListener(v -> clickOperator((Button)v, "*"));
         di.setOnClickListener(v -> clickOperator((Button)v, "/"));
         eq.setOnClickListener(v -> clickOperator((Button)v, "="));
+        * */
     }
 
-    private void clickOperator(Button button, String op) {
+   /*
+   *  private void clickOperator(Button button, String op) {
         operator.appendOperator(op);
         operator.callUpdateDisplay();
     }
@@ -131,4 +134,6 @@ public class MainActivity extends AppCompatActivity {
     private void updateDisplay() {
         textView.setText(display.getDisplay());
     }
+   *
+   * */
 }
