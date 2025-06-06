@@ -4,9 +4,9 @@ public interface Display {
     String getDisplay();
     void setDisplay(String text);
     // wrap methods
-    void callUpDateDigitOnDisplay(double currentNumber, double storedNumber, String operator);
-    void callUpDateOperatorOnDisplay(double storedNumber, String operator);
-    void callUpDateEqualOnDisplay(double storedNumber, String storedOperator, double currentNumber);
+    void callUpDateDigit_OnDisplay(double currentNumber, double storedNumber, String operator, int digit);
+    void callUpDateOperator_OnDisplay(double storedNumber, String operator);
+    void callUpDateEqual_OnDisplay(double storedNumber, String storedOperator, double currentNumber);
 
 
 }

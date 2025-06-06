@@ -31,8 +31,8 @@ public class Display_impl implements Display {
      * allow to access other classes private method
      * **/
     @Override
-    public void callUpDateDigitOnDisplay(double currentNumber, double storedNumber, String operator) {
-        upDateDigitOnDisplay(currentNumber, storedNumber, operator);
+    public void callUpDateDigit_OnDisplay(double currentNumber, double storedNumber, String operator, int digit) {
+        upDateDigit_OnDisplay(currentNumber, storedNumber, operator, digit);
     }
 
     /**
@@ -42,8 +42,8 @@ public class Display_impl implements Display {
      * allow to access other classes private method
      * **/
     @Override
-    public void callUpDateOperatorOnDisplay(double storedNumber, String operator) {
-        upDateOperatorOnDisplay(storedNumber, operator);
+    public void callUpDateOperator_OnDisplay(double storedNumber, String operator) {
+        upDateOperator_OnDisplay(storedNumber, operator);
     }
 
     /**
@@ -54,8 +54,8 @@ public class Display_impl implements Display {
      * allow to access other classes private method
      * **/
     @Override
-    public void callUpDateEqualOnDisplay(double storedNumber, String storedOperator, double currentNumber) {
-        upDateEqualOnDisplay(storedNumber, storedOperator, currentNumber);
+    public void callUpDateEqual_OnDisplay(double storedNumber, String storedOperator, double currentNumber) {
+        upDateEqual_OnDisplay(storedNumber, storedOperator, currentNumber);
     }
 
 
@@ -66,12 +66,34 @@ public class Display_impl implements Display {
      * @ param: operator // operator(+, - , * , /)
      *  to avoid cross-reference issues
      * **/
-    private void upDateDigitOnDisplay(double currentNumber, double storedNumber, String operator) {
-        if(!operator.isEmpty()) {
-
+    private void upDateDigit_OnDisplay(double currentNumber, double storedNumber, String operator, int digit) {
+        String stNum;
+        if (storedNumber == (long) storedNumber) {
+            stNum = String.valueOf((long) storedNumber);
+        } else {
+            stNum = String.valueOf(storedNumber);
         }
 
-
+        if(!operator.isEmpty()) {
+            if (display.equals(stNum + " " + operator + " ")) {
+                display += String.valueOf(digit);
+            } else if (display.endsWith("+")
+                    || display.endsWith("-")
+                    || display.endsWith("*")
+                    || display.endsWith("/")) {
+                display += String.valueOf(digit);
+            } else {
+                display += String.valueOf(digit);
+            }
+        } else {
+            if (display.equals("0") && digit == 0) {
+                display = "0";
+            } else if (display.equals("0")) {
+                display = String.valueOf(digit);
+            } else {
+                display += String.valueOf(digit);
+            }
+        }
     }
 
     /**
@@ -80,7 +102,7 @@ public class Display_impl implements Display {
      *
      *  to avoid cross-reference issues
      * **/
-    private void upDateOperatorOnDisplay(double storedNumber, String operator) {}
+    private void upDateOperator_OnDisplay(double storedNumber, String operator) {}
 
     /**
      * method: define showing the operator "=" on the display
@@ -88,6 +110,6 @@ public class Display_impl implements Display {
      *
      *  to avoid cross-reference issues
      * **/
-    private void upDateEqualOnDisplay(double storedNumber, String oldOperator, double currentNumber) {}
+    private void upDateEqual_OnDisplay(double storedNumber, String oldOperator, double currentNumber) {}
 
 }
