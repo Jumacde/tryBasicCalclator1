@@ -1,5 +1,6 @@
 package com.example.trybasiccalclator1.impl;
 
+import com.example.trybasiccalclator1.CalcLogic;
 import com.example.trybasiccalclator1.Operator;
 
 /**
@@ -28,7 +29,19 @@ public class Operator_impl implements Operator {
      * allow to access other classes private method(s)
      * **/
     @Override
-    public void callProcessOperator() {
+    public void callProcessOperator(CalcLogic calcLogic, String operator) {
+        processOperator(calcLogic, operator);
+    }
+
+    /**
+     * method: define calculate rule.
+     * @ param: operator
+     * - from the method calcResult from CalcLogic_impl
+     * @ param: CalcLogic
+     * - call the class CalcLogic_impl via their interface class
+     * to avoid cross-reference issues
+     * **/
+    private void processOperator(CalcLogic calcLogic, String operator){
 
     }
 
