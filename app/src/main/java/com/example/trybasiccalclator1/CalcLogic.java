@@ -10,5 +10,6 @@ public interface CalcLogic {
     void setIsInputNum(boolean isInputNum);
 
     void clear();
-    void callCalcResult();
+    // wrap method
+    void callCalcResult(String operator);
 }

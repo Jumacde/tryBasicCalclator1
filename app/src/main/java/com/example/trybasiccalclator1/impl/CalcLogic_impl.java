@@ -1,7 +1,9 @@
 package com.example.trybasiccalclator1.impl;
 
 import com.example.trybasiccalclator1.CalcLogic;
-
+/**
+ * control calculate method by this class
+ * **/
 public class CalcLogic_impl implements CalcLogic {
     private double cNum; // current number
     private double sNum; // stored number
@@ -50,15 +52,21 @@ public class CalcLogic_impl implements CalcLogic {
 
     }
     /**
-     * @ Wrapper method
+     * - Wrapper method
      * allow to access other classes private method(s)
      * **/
     @Override
-    public void callCalcResult() {
-        calcResult();
+    public void callCalcResult(String operator) {
+        calcResult(operator);
     }
 
-    private void calcResult() {
+    /**
+     * method: define calculate rule.
+     * @ param: operator
+     *  use the String operator from the class Operator_impl
+     *  to avoid cross-reference issues
+     * **/
+    private void calcResult(String operator) {
 
 
 
