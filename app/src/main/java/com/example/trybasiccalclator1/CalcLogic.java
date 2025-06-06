@@ -1,12 +1,12 @@
 package com.example.trybasiccalclator1;
 
 public interface CalcLogic {
-    double getCNum();
-    double getSNum();
+    double getCurrentNumber();
+    double getStoredNumber();
     boolean getIsInputNum();
 
-    void setCNum(double cNum);
-    void setSNum(double sNum);
+    void setCurrentNumber(double currentNumber);
+    void setStoredNumber(double storedNumber);
     void setIsInputNum(boolean isInputNum);
 
     void clear();

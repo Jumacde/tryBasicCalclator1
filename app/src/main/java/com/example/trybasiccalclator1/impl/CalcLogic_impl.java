@@ -5,8 +5,8 @@ import com.example.trybasiccalclator1.CalcLogic;
  * control calculate method by this class
  * **/
 public class CalcLogic_impl implements CalcLogic {
-    private double cNum; // current number
-    private double sNum; // stored number
+    private double currentNumber;
+    private double storedNumber;
     private boolean isInputNum;
 
     public CalcLogic_impl() {
@@ -15,13 +15,13 @@ public class CalcLogic_impl implements CalcLogic {
 
 
     @Override
-    public double getCNum() {
-        return cNum;
+    public double getCurrentNumber() {
+        return currentNumber;
     }
 
     @Override
-    public double getSNum() {
-        return sNum;
+    public double getStoredNumber() {
+        return storedNumber;
     }
 
     @Override
@@ -30,13 +30,13 @@ public class CalcLogic_impl implements CalcLogic {
     }
 
     @Override
-    public void setCNum(double cNum) {
-        this.cNum = cNum;
+    public void setCurrentNumber(double currentNumber) {
+        this.currentNumber = currentNumber;
     }
 
     @Override
-    public void setSNum(double sNum) {
-        this.sNum = sNum;
+    public void setStoredNumber(double storedNumber) {
+        this.storedNumber = storedNumber;
     }
 
     @Override
@@ -46,8 +46,8 @@ public class CalcLogic_impl implements CalcLogic {
 
     @Override
     public void clear() {
-        this.cNum = 0;
-        this.sNum = 0;
+        this.currentNumber = 0;
+        this.storedNumber = 0;
         this.isInputNum = true;
 
     }
@@ -72,22 +72,22 @@ public class CalcLogic_impl implements CalcLogic {
         }
         double result = 0;
         if (operator.equals("+")) {
-            result = sNum + cNum;
+            result = storedNumber + currentNumber;
         } else if (operator.equals("-")) {
-            result = sNum - cNum;
+            result = storedNumber - currentNumber;
         } else if (operator.equals("*")) {
-            if (sNum == 0 || cNum == 0) {
+            if (storedNumber == 0 || currentNumber == 0) {
                 result = 0;
             } else {
-                result = sNum * cNum;
+                result = storedNumber * currentNumber;
             }
         } else if (operator.equals("/")) {
-            if (sNum == 0 || cNum == 0) {
+            if (storedNumber == 0 || currentNumber == 0) {
                 return;
             } else {
-                result = sNum / cNum;
+                result = storedNumber / currentNumber;
             }
         }
-        cNum = result;
+        currentNumber = result;
     }
 }
