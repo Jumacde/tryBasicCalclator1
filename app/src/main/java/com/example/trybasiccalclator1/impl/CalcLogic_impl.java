@@ -67,8 +67,27 @@ public class CalcLogic_impl implements CalcLogic {
      *  to avoid cross-reference issues
      * **/
     private void calcResult(String operator) {
-
-
-
+        if(operator.isEmpty()) {
+            return;
+        }
+        double result = 0;
+        if (operator.equals("+")) {
+            result = sNum + cNum;
+        } else if (operator.equals("-")) {
+            result = sNum - cNum;
+        } else if (operator.equals("*")) {
+            if (sNum == 0 || cNum == 0) {
+                result = 0;
+            } else {
+                result = sNum * cNum;
+            }
+        } else if (operator.equals("/")) {
+            if (sNum == 0 || cNum == 0) {
+                return;
+            } else {
+                result = sNum / cNum;
+            }
+        }
+        cNum = result;
     }
 }
