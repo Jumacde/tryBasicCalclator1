@@ -147,8 +147,14 @@ public class Display_impl implements Display {
     }
 
     private String formatNum_OnDisplay(double num) {
-
-        return null;
+        if (num == (long) num) {
+            return  String.valueOf((long) num);
+        } else {
+            String str = String.valueOf(num);
+            if (str.endsWith(".0")) {
+                return str.substring(0, str.length() -2);
+            }
+            return str;
+        }
     }
-
 }
