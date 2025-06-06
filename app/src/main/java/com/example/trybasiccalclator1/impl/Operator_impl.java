@@ -11,6 +11,7 @@ public class Operator_impl implements Operator {
     private String currentOperator; // current operator
 
     public Operator_impl() {
+        this.currentOperator = "";
     }
 
     @Override
