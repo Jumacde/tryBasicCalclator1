@@ -8,6 +8,7 @@ import com.example.trybasiccalclator1.Display;
 
 public class Display_impl implements Display {
     private String display;
+    private String sNumStr;
 
     public Display_impl() {
         this.display = "0";
@@ -58,6 +59,16 @@ public class Display_impl implements Display {
         upDateEqual_OnDisplay(storedNumber, storedOperator, currentNumber);
     }
 
+    /**
+     * - Wrapper method
+     *      * @ param: num
+     * allow to access other classes private method
+     * **/
+    @Override
+    public void callFormatNum_OnDisplay(double num) {
+        formatNum_OnDisplay(num);
+    }
+
 
     /**
      * method: define showing digits on the display
@@ -67,15 +78,14 @@ public class Display_impl implements Display {
      *  to avoid cross-reference issues
      * **/
     private void upDateDigit_OnDisplay(double currentNumber, double storedNumber, String operator, int digit) {
-        String stNum;
         if (storedNumber == (long) storedNumber) {
-            stNum = String.valueOf((long) storedNumber);
+            sNumStr = String.valueOf((long) storedNumber);
         } else {
-            stNum = String.valueOf(storedNumber);
+            sNumStr = String.valueOf(storedNumber);
         }
 
         if(!operator.isEmpty()) {
-            if (display.equals(stNum + " " + operator + " ")) {
+            if (display.equals(sNumStr + " " + operator + " ")) {
                 display += String.valueOf(digit);
             } else if (display.endsWith("+")
                     || display.endsWith("-")
@@ -102,7 +112,14 @@ public class Display_impl implements Display {
      *
      *  to avoid cross-reference issues
      * **/
-    private void upDateOperator_OnDisplay(double storedNumber, String operator) {}
+    private void upDateOperator_OnDisplay(double storedNumber, String operator) {
+        if (storedNumber == (long) storedNumber) {
+            sNumStr = String.valueOf((long) storedNumber);
+        } else {
+            sNumStr = String.valueOf(storedNumber);
+        }
+        display = sNumStr + " " + operator + " ";
+    }
 
     /**
      * method: define showing the operator "=" on the display
@@ -110,6 +127,28 @@ public class Display_impl implements Display {
      *
      *  to avoid cross-reference issues
      * **/
-    private void upDateEqual_OnDisplay(double storedNumber, String oldOperator, double currentNumber) {}
+    private void upDateEqual_OnDisplay(double storedNumber, String storedOperator, double currentNumber) {
+        if (storedNumber == (long) storedNumber) {
+            sNumStr = String.valueOf((long) storedNumber);
+        } else {
+            sNumStr = String.valueOf(storedNumber);
+        }
+
+
+        String cNumStr;
+        if (currentNumber == (long) currentNumber) {
+            cNumStr = String.valueOf((long) currentNumber);
+        } else {
+            cNumStr = String.valueOf(currentNumber);
+        }
+        String resultStr = formatNum_OnDisplay(currentNumber);
+        display = sNumStr + " " + storedOperator + " " + cNumStr + " = "  + resultStr;
+
+    }
+
+    private String formatNum_OnDisplay(double num) {
+
+        return null;
+    }
 
 }

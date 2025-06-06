@@ -7,6 +7,6 @@ public interface Display {
     void callUpDateDigit_OnDisplay(double currentNumber, double storedNumber, String operator, int digit);
     void callUpDateOperator_OnDisplay(double storedNumber, String operator);
     void callUpDateEqual_OnDisplay(double storedNumber, String storedOperator, double currentNumber);
-
+    void callFormatNum_OnDisplay(double num);
 
 }
