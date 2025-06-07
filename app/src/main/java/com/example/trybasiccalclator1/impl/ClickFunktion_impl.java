@@ -92,7 +92,6 @@ public class ClickFunktion_impl implements ClickFunktion {
         calcLogic.clear();
         operator.setCurrentOperator("");
         display.setDisplay("0");
-
     }
 
     /**
@@ -111,7 +110,7 @@ public class ClickFunktion_impl implements ClickFunktion {
 
         operator.callProcessOperator(calcLogic, operatorStr);
 
-        if (operator.equals("=")) {
+        if (operatorStr.equals("=")) {
             display.callUpDateEqual_OnDisplay(Double.parseDouble(strSNum), op, Double.parseDouble(strCNum));
         } else {
             display.callUpDateOperator_OnDisplay(calcLogic.getStoredNumber(), operator.getCurrentOperator());
