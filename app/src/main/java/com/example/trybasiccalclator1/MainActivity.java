@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         calcLogic = new CalcLogic_impl();
         operator = new Operator_impl();
         display = new Display_impl();
-        clickFunktion = new ClickFunktion_impl(operatorProcessor);
+        clickFunktion = new ClickFunktion_impl(operator);
 
         textView = findViewById(R.id.text);
         pl = findViewById(R.id.plass);
