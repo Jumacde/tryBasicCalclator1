@@ -9,6 +9,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.trybasiccalclator1.impl.CalcLogic_impl;
+import com.example.trybasiccalclator1.impl.ClickFunktion_impl;
 import com.example.trybasiccalclator1.impl.Display_impl;
 import com.example.trybasiccalclator1.impl.Operator_impl;
 
@@ -28,22 +29,10 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        /*
-        *         final CalcLogic_impl calcLogicImpl;
-        final Operator_impl operatorImpl;
-        final Display_impl displayImpl;
-
-        calcLogicImpl = new CalcLogic_impl(null, null);
-        operatorImpl = new Operator_impl(null, null);
-        displayImpl = new Display_impl(null, null);
-
-        calcLogicImpl.setDependencies(displayImpl, operatorImpl);
-        operatorImpl.setDependencies(calcLogicImpl, displayImpl);
-        displayImpl.setDependencies(operatorImpl, calcLogicImpl);
-
-        calcLogic = calcLogicImpl;
-        operator = operatorImpl;
-        display = displayImpl;
+        calcLogic = new CalcLogic_impl();
+        operator = new Operator_impl();
+        display = new Display_impl();
+        clickFunktion = new ClickFunktion_impl(operatorProcessor);
 
         textView = findViewById(R.id.text);
         pl = findViewById(R.id.plass);
@@ -62,9 +51,7 @@ public class MainActivity extends AppCompatActivity {
         eq.setOnClickListener(v -> clickOperator((Button)v, "="));
         * */
     }
-
-   /*
-   *  private void clickOperator(Button button, String op) {
+    private void clickOperator(Button button, String op) {
         operator.appendOperator(op);
         operator.callUpdateDisplay();
     }
@@ -135,6 +122,5 @@ public class MainActivity extends AppCompatActivity {
     private void updateDisplay() {
         textView.setText(display.getDisplay());
     }
-   *
-   * */
+
 }

@@ -7,10 +7,10 @@ import com.example.trybasiccalclator1.Operator;
 
 public class ClickFunktion_impl implements ClickFunktion {
 
-    private Operator callProcessOperator;
+    private Operator operator;
 
-    public ClickFunktion_impl(Operator callProcessOperator) {
-        this.callProcessOperator = callProcessOperator;
+    public ClickFunktion_impl(Operator operator) {
+        this.operator = operator;
     }
 
     /**
@@ -23,8 +23,8 @@ public class ClickFunktion_impl implements ClickFunktion {
      * @ Param: digit
      * **/
     @Override
-    public void callDigitClick(CalcLogic calcLogic, Display display, Operator operatorProcessor, int digit) {
-        digitClick(calcLogic, display, operatorProcessor, digit);
+    public void callDigitClick(CalcLogic calcLogic, Display display, Operator operator, int digit) {
+        digitClick(calcLogic, display, operator, digit);
     }
 
     /**
@@ -36,8 +36,8 @@ public class ClickFunktion_impl implements ClickFunktion {
      * call this method from the interface Operator
      * **/
     @Override
-    public void callACClick(CalcLogic calcLogic, Display display, Operator operatorProcessor) {
-        aCClick(calcLogic, display, operatorProcessor);
+    public void callACClick(CalcLogic calcLogic, Display display, Operator operator) {
+        aCClick(calcLogic, display, operator);
     }
 
     /**
@@ -50,8 +50,8 @@ public class ClickFunktion_impl implements ClickFunktion {
      * @ Param: operator
      * **/
     @Override
-    public void callOperatorClick(CalcLogic calcLogic, Display display, Operator operatorProcessor, String operator) {
-        operatorClick(calcLogic, display, operatorProcessor, operator);
+    public void callOperatorClick(CalcLogic calcLogic, Display display, Operator operator, String operatorStr) {
+        operatorClick(calcLogic, display, operator, operatorStr);
     }
 
     /**
@@ -63,11 +63,11 @@ public class ClickFunktion_impl implements ClickFunktion {
      * call this method from the interface Operator
      * @ Param: operator
      * **/
-    private void digitClick(CalcLogic calcLogic, Display display, Operator operatorProcessor, int digit){
+    private void digitClick(CalcLogic calcLogic, Display display, Operator operator, int digit){
         boolean isInputNum = calcLogic.getIsInputNum();
         double currentNumber = calcLogic.getCurrentNumber();
         double storedNumber = calcLogic.getStoredNumber();
-        String currentOperator = operatorProcessor.getCurrentOperator();
+        String currentOperator = operator.getCurrentOperator();
         if (isInputNum) {
             calcLogic.setCurrentNumber(digit);
             calcLogic.setIsInputNum(false);
@@ -88,9 +88,9 @@ public class ClickFunktion_impl implements ClickFunktion {
      * @ Param: operatorProcessor
      * call this method from the interface Operator
      * **/
-    private void aCClick(CalcLogic calcLogic, Display display, Operator operatorProcessor) {
+    private void aCClick(CalcLogic calcLogic, Display display, Operator operator) {
         calcLogic.clear();
-        operatorProcessor.setCurrentOperator("");
+        operator.setCurrentOperator("");
         display.setDisplay("0");
 
     }
@@ -103,18 +103,18 @@ public class ClickFunktion_impl implements ClickFunktion {
      * call this method from the interface Operator
      * @ Param: operator
      * **/
-    private void operatorClick(CalcLogic calcLogic, Display display, Operator operatorProcessor, String operator) {
+    private void operatorClick(CalcLogic calcLogic, Display display, Operator operator, String operatorStr) {
         double storedNumber = calcLogic.getStoredNumber();
         String strSNum = display.callFormatNum_OnDisplay(storedNumber);
         String strCNum = display.callFormatNum_OnDisplay(calcLogic.getCurrentNumber());
-        String op = operatorProcessor.getCurrentOperator();
+        String op = operator.getCurrentOperator();
 
-        operatorProcessor.callProcessOperator(calcLogic, operator);
+        operator.callProcessOperator(calcLogic, operatorStr);
 
         if (operator.equals("=")) {
             display.callUpDateEqual_OnDisplay(Double.parseDouble(strSNum), op, Double.parseDouble(strCNum));
         } else {
-            display.callUpDateOperator_OnDisplay(calcLogic.getStoredNumber(), operatorProcessor.getCurrentOperator());
+            display.callUpDateOperator_OnDisplay(calcLogic.getStoredNumber(), operator.getCurrentOperator());
         }
     }
 }
