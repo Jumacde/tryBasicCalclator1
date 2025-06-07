@@ -41,82 +41,76 @@ public class MainActivity extends AppCompatActivity {
         di = findViewById(R.id.div);
         eq = findViewById(R.id.equal);
 
+        updateDisplay();
 
-        display.callUpdateDisplay();// updateDisplay
+        pl.setOnClickListener(v -> clickFunktion.callOperatorClick(calcLogic, display, operator, "+"));
+        mi.setOnClickListener(v -> clickFunktion.callOperatorClick(calcLogic, display, operator, "-"));
+        mu.setOnClickListener(v -> clickFunktion.callOperatorClick(calcLogic, display, operator, "*"));
+        di.setOnClickListener(v -> clickFunktion.callOperatorClick(calcLogic, display, operator, "/"));
+        eq.setOnClickListener(v -> clickFunktion.callOperatorClick(calcLogic, display, operator, "="));
 
-        pl.setOnClickListener(v -> clickOperator((Button)v, "+"));
-        mi.setOnClickListener(v -> clickOperator((Button)v, "-"));
-        mu.setOnClickListener(v -> clickOperator((Button)v, "*"));
-        di.setOnClickListener(v -> clickOperator((Button)v, "/"));
-        eq.setOnClickListener(v -> clickOperator((Button)v, "="));
-        * */
     }
-    private void clickOperator(Button button, String op) {
-        operator.appendOperator(op);
-        operator.callUpdateDisplay();
-    }
+
 
     private void press00(View view) {
-        calcLogic.appendDigit(0);
-        calcLogic.appendDigit(0);
-        display.callUpdateDisplay();
+        clickFunktion.callDigitClick(calcLogic, display, operator, 0);
+        clickFunktion.callDigitClick(calcLogic, display, operator, 0);
+        updateDisplay();
     }
 
     private void press0(View view) {
-        calcLogic.appendDigit(0);
-        display.callUpdateDisplay();
+        clickFunktion.callDigitClick(calcLogic, display, operator, 0);
+        updateDisplay();
     }
 
     private void press1(View view) {
-        calcLogic.appendDigit(1);
-        display.callUpdateDisplay();
+        clickFunktion.callDigitClick(calcLogic, display, operator, 1);
+        updateDisplay();
     }
 
     private void press2(View view) {
-        calcLogic.appendDigit(2);
-        display.callUpdateDisplay();
+        clickFunktion.callDigitClick(calcLogic, display, operator, 2);
+        updateDisplay();
     }
 
     private void press3(View view) {
-        calcLogic.appendDigit(3);
-        display.callUpdateDisplay();
+        clickFunktion.callDigitClick(calcLogic, display, operator, 3);
+        updateDisplay();
     }
 
     private void press4(View view) {
-        calcLogic.appendDigit(4);
-        display.callUpdateDisplay();
+        clickFunktion.callDigitClick(calcLogic, display, operator, 4);
+        updateDisplay();
     }
 
     private void press5(View view) {
-        calcLogic.appendDigit(5);
-        display.callUpdateDisplay();
+        clickFunktion.callDigitClick(calcLogic, display, operator, 5);
+        updateDisplay();
     }
 
     private void press6(View view) {
-        calcLogic.appendDigit(6);
-        display.callUpdateDisplay();
+        clickFunktion.callDigitClick(calcLogic, display, operator, 6);
+        updateDisplay();
     }
 
     private void press7(View view) {
-        calcLogic.appendDigit(7);
-        display.callUpdateDisplay();
+        clickFunktion.callDigitClick(calcLogic, display, operator, 7);
+        updateDisplay();
     }
 
     private void press8(View view) {
-        calcLogic.appendDigit(8);
-        display.callUpdateDisplay();
+        clickFunktion.callDigitClick(calcLogic, display, operator, 8);
+        updateDisplay();
     }
 
     private void press9(View view) {
-        calcLogic.appendDigit(9);
-        display.callUpdateDisplay();
+        clickFunktion.callDigitClick(calcLogic, display, operator, 9);
+        updateDisplay();
     }
 
     private void pressAc(View view) {
-        calcLogic.clear();
-        display.clear();
-        operator.clear();
-        display.callUpdateDisplay();
+        clickFunktion.callACClick(calcLogic, display, operator);
+        updateDisplay();
     }
 
     private void updateDisplay() {
