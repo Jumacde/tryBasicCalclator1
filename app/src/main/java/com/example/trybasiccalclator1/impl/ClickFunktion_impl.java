@@ -105,8 +105,16 @@ public class ClickFunktion_impl implements ClickFunktion {
      * **/
     private void operatorClick(CalcLogic calcLogic, Display display, Operator operatorProcessor, String operator) {
         double storedNumber = calcLogic.getStoredNumber();
-        String StrSNum = display.callFormatNum_OnDisplay(storedNumber);
-        String StrCNum = display.callFormatNum_OnDisplay(calcLogic.getCurrentNumber());
-    }
+        String strSNum = display.callFormatNum_OnDisplay(storedNumber);
+        String strCNum = display.callFormatNum_OnDisplay(calcLogic.getCurrentNumber());
+        String op = operatorProcessor.getCurrentOperator();
 
+        operatorProcessor.callProcessOperator(calcLogic, operator);
+
+        if (operator.equals("=")) {
+            display.callUpDateEqual_OnDisplay(Double.parseDouble(strSNum), op, Double.parseDouble(strCNum));
+        } else {
+            display.callUpDateOperator_OnDisplay(calcLogic.getStoredNumber(), operatorProcessor.getCurrentOperator());
+        }
+    }
 }
