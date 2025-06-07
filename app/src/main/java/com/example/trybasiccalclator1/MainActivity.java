@@ -15,11 +15,12 @@ import com.example.trybasiccalclator1.impl.Operator_impl;
 public class MainActivity extends AppCompatActivity {
     private TextView textView;
     private Button pl, mi, mu, di, eq;
-    String op;
+    private String op;
 
-    CalcLogic calcLogic;
-    Operator operator;
-    Display display;
+    private CalcLogic calcLogic;
+    private Operator operator;
+    private Display display;
+    private ClickFunktion clickFunktion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
