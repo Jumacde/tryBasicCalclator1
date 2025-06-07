@@ -64,7 +64,20 @@ public class ClickFunktion_impl implements ClickFunktion {
      * @ Param: operator
      * **/
     private void digitClick(CalcLogic calcLogic, Display display, Operator operatorProcessor, int digit){
-
+        boolean isInputNum = calcLogic.getIsInputNum();
+        double currentNumber = calcLogic.getCurrentNumber();
+        double storedNumber = calcLogic.getStoredNumber();
+        String currentOperator = operatorProcessor.getCurrentOperator();
+        if (isInputNum) {
+            calcLogic.setCurrentNumber(digit);
+            calcLogic.setIsInputNum(false);
+            display.callFormatNum_OnDisplay(
+                    currentNumber, storedNumber,
+                    currentOperator,digit);
+        } else {
+            calcLogic.setCurrentNumber(currentNumber * 10 + digit);
+            display.callUpDateDigit_OnDisplay(currentNumber, storedNumber, currentOperator, digit);
+        }
     }
 
     /**
