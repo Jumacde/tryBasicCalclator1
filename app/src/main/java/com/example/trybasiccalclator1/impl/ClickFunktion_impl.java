@@ -14,8 +14,8 @@ public class ClickFunktion_impl implements ClickFunktion {
     }
 
     /**
-     * - Wrapper methods
-     * allow to access other classes private method(s)
+     * - Wrapper method
+     * allow to access other classes private method
      * @ Param: calcLogic, display
      * call interfaces
      * @ Param: operatorProcessor
@@ -28,8 +28,8 @@ public class ClickFunktion_impl implements ClickFunktion {
     }
 
     /**
-     * - Wrapper methods
-     * allow to access other classes private method(s)
+     * - Wrapper method
+     * allow to access other classes private method
      * @ Param: calcLogic, display
      * call interfaces
      * @ Param: operatorProcessor
@@ -41,8 +41,8 @@ public class ClickFunktion_impl implements ClickFunktion {
     }
 
     /**
-     * - Wrapper methods
-     * allow to access other classes private method(s)
+     * - Wrapper method
+     * allow to access other classes private method
      * @ Param: calcLogic, display
      * call interfaces
      * @ Param: operatorProcessor
@@ -54,14 +54,39 @@ public class ClickFunktion_impl implements ClickFunktion {
         operatorClick(calcLogic, display, operatorProcessor, operator);
     }
 
+    /**
+     * - method
+     *
+     * @ Param: calcLogic, display
+     * call interfaces
+     * @ Param: operatorProcessor
+     * call this method from the interface Operator
+     * @ Param: operator
+     * **/
     private void digitClick(CalcLogic calcLogic, Display display, Operator operatorProcessor, int digit){
 
     }
 
+    /**
+     * - method
+     *
+     * @ Param: calcLogic, display
+     * call interfaces
+     * @ Param: operatorProcessor
+     * call this method from the interface Operator
+     * **/
     private void aCClick(CalcLogic calcLogic, Display display, Operator operatorProcessor) {
 
     }
 
+    /**
+     * - method
+     * @ Param: calcLogic, display
+     * call interfaces
+     * @ Param: operatorProcessor
+     * call this method from the interface Operator
+     * @ Param: operator
+     * **/
     private void operatorClick(CalcLogic calcLogic, Display display, Operator operatorProcessor, String operator) {
 
     }

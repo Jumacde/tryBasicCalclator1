@@ -109,7 +109,6 @@ public class Display_impl implements Display {
     /**
      * method: define showing Operators(+, -, *, /) on the display
      * @ param:
-     *
      *  to avoid cross-reference issues
      * **/
     private void upDateOperator_OnDisplay(double storedNumber, String operator) {
@@ -124,7 +123,6 @@ public class Display_impl implements Display {
     /**
      * method: define showing the operator "=" on the display
      * @ param:
-     *
      *  to avoid cross-reference issues
      * **/
     private void upDateEqual_OnDisplay(double storedNumber, String storedOperator, double currentNumber) {
