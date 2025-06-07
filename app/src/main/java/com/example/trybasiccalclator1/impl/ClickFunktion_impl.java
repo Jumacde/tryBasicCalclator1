@@ -71,7 +71,7 @@ public class ClickFunktion_impl implements ClickFunktion {
         if (isInputNum) {
             calcLogic.setCurrentNumber(digit);
             calcLogic.setIsInputNum(false);
-            display.callFormatNum_OnDisplay(
+            display.callUpDateDigit_OnDisplay(
                     currentNumber, storedNumber,
                     currentOperator,digit);
         } else {
@@ -104,7 +104,9 @@ public class ClickFunktion_impl implements ClickFunktion {
      * @ Param: operator
      * **/
     private void operatorClick(CalcLogic calcLogic, Display display, Operator operatorProcessor, String operator) {
-
+        double storedNumber = calcLogic.getStoredNumber();
+        String StrSNum = display.callFormatNum_OnDisplay(storedNumber);
+        String StrCNum = display.callFormatNum_OnDisplay(calcLogic.getCurrentNumber());
     }
 
 }

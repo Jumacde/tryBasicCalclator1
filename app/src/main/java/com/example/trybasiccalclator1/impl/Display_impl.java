@@ -65,8 +65,8 @@ public class Display_impl implements Display {
      * allow to access other classes private method
      * **/
     @Override
-    public void callFormatNum_OnDisplay(double num) {
-        formatNum_OnDisplay(num);
+    public String callFormatNum_OnDisplay(double num) {
+        return formatNum_OnDisplay(num);
     }
 
 
