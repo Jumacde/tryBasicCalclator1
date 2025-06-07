@@ -52,68 +52,68 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void press00(View view) {
+    public void press00(View view) {
         clickFunktion.callDigitClick(calcLogic, display, operator, 0);
         clickFunktion.callDigitClick(calcLogic, display, operator, 0);
         updateDisplay();
     }
 
-    private void press0(View view) {
+    public void press0(View view) {
         clickFunktion.callDigitClick(calcLogic, display, operator, 0);
         updateDisplay();
     }
 
-    private void press1(View view) {
+    public void press1(View view) {
         clickFunktion.callDigitClick(calcLogic, display, operator, 1);
         updateDisplay();
     }
 
-    private void press2(View view) {
+    public void press2(View view) {
         clickFunktion.callDigitClick(calcLogic, display, operator, 2);
         updateDisplay();
     }
 
-    private void press3(View view) {
+    public void press3(View view) {
         clickFunktion.callDigitClick(calcLogic, display, operator, 3);
         updateDisplay();
     }
 
-    private void press4(View view) {
+    public void press4(View view) {
         clickFunktion.callDigitClick(calcLogic, display, operator, 4);
         updateDisplay();
     }
 
-    private void press5(View view) {
+    public void press5(View view) {
         clickFunktion.callDigitClick(calcLogic, display, operator, 5);
         updateDisplay();
     }
 
-    private void press6(View view) {
+    public void press6(View view) {
         clickFunktion.callDigitClick(calcLogic, display, operator, 6);
         updateDisplay();
     }
 
-    private void press7(View view) {
+    public void press7(View view) {
         clickFunktion.callDigitClick(calcLogic, display, operator, 7);
         updateDisplay();
     }
 
-    private void press8(View view) {
+    public void press8(View view) {
         clickFunktion.callDigitClick(calcLogic, display, operator, 8);
         updateDisplay();
     }
 
-    private void press9(View view) {
+    public void press9(View view) {
         clickFunktion.callDigitClick(calcLogic, display, operator, 9);
         updateDisplay();
     }
 
-    private void pressAc(View view) {
+    public void pressAc(View view) {
         clickFunktion.callACClick(calcLogic, display, operator);
         updateDisplay();
     }
 
-    private void updateDisplay() {
+    public void updateDisplay() {
         textView.setText(display.getDisplay());
     }
 

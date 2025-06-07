@@ -76,11 +76,7 @@ public class CalcLogic_impl implements CalcLogic {
         } else if (operator.equals("-")) {
             result = storedNumber - currentNumber;
         } else if (operator.equals("*")) {
-            if (storedNumber == 0 || currentNumber == 0) {
-                result = 0;
-            } else {
-                result = storedNumber * currentNumber;
-            }
+            result = storedNumber * currentNumber;
         } else if (operator.equals("/")) {
             if (storedNumber == 0 || currentNumber == 0) {
                 return;
