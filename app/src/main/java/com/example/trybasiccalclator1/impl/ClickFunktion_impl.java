@@ -43,11 +43,9 @@ public class ClickFunktion_impl implements ClickFunktion {
     /**
      * - Wrapper method
      * allow to access other classes private method
-     * @ Param: calcLogic, display
+     * @ Param: calcLogic, display, operator
      * call interfaces
-     * @ Param: operatorProcessor
-     * call this method from the interface Operator
-     * @ Param: operator
+     * @ Param: operatorStr
      * **/
     @Override
     public void callOperatorClick(CalcLogic calcLogic, Display display, Operator operator, String operatorStr) {
@@ -57,11 +55,9 @@ public class ClickFunktion_impl implements ClickFunktion {
     /**
      * - method
      *
-     * @ Param: calcLogic, display
+     * @ Param: calcLogic, display, operator
      * call interfaces
-     * @ Param: operatorProcessor
-     * call this method from the interface Operator
-     * @ Param: operator
+     * @ Param: digit
      * **/
     private void digitClick(CalcLogic calcLogic, Display display, Operator operator, int digit){
         boolean isInputNum = calcLogic.getIsInputNum();
@@ -83,10 +79,8 @@ public class ClickFunktion_impl implements ClickFunktion {
     /**
      * - method
      *
-     * @ Param: calcLogic, display
+     * @ Param: calcLogic, display, operator
      * call interfaces
-     * @ Param: operatorProcessor
-     * call this method from the interface Operator
      * **/
     private void aCClick(CalcLogic calcLogic, Display display, Operator operator) {
         calcLogic.clear();
@@ -96,11 +90,9 @@ public class ClickFunktion_impl implements ClickFunktion {
 
     /**
      * - method
-     * @ Param: calcLogic, display
+     * @ Param: calcLogic, display, operator
      * call interfaces
-     * @ Param: operatorProcessor
-     * call this method from the interface Operator
-     * @ Param: operator
+     * @ Param: operatorStr
      * **/
     private void operatorClick(CalcLogic calcLogic, Display display, Operator operator, String operatorStr) {
         double storedNumber = calcLogic.getStoredNumber();
