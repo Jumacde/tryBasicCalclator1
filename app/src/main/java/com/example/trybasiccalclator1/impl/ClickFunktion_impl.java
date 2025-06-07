@@ -89,6 +89,9 @@ public class ClickFunktion_impl implements ClickFunktion {
      * call this method from the interface Operator
      * **/
     private void aCClick(CalcLogic calcLogic, Display display, Operator operatorProcessor) {
+        calcLogic.clear();
+        operatorProcessor.setCurrentOperator("");
+        display.setDisplay("0");
 
     }
 
