@@ -104,9 +104,11 @@ public class ClickFunktion_impl implements ClickFunktion {
         operator.callProcessOperator(calcLogic, operatorStr);
 
         if (operatorStr.equals("=")) {
-            strCNum = display.callFormatNum_OnDisplay(calcLogic.getCurrentNumber());
+            strCNum = display.callFormatNum_OnDisplay(currentNumber);
+            display.callUpDateEqual_OnDisplay(Double.parseDouble(strSNum), op, Double.parseDouble(strCNum));
         } else {
-            strCNum = display.callFormatNum_OnDisplay(calcLogic.getCurrentNumber());
+            //strCNum = display.callFormatNum_OnDisplay(calcLogic.getCurrentNumber());
+            display.callUpDateOperator_OnDisplay(calcLogic.getStoredNumber(), operator.getCurrentOperator());
         }
     }
 }
