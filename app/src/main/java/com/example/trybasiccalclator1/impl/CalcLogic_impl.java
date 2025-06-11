@@ -8,6 +8,7 @@ public class CalcLogic_impl implements CalcLogic {
     private double currentNumber;
     private double storedNumber;
     private boolean isInputNum;
+    private String calcStep;
 
     public CalcLogic_impl() {
         clear();
@@ -30,6 +31,11 @@ public class CalcLogic_impl implements CalcLogic {
     }
 
     @Override
+    public String getCalcStep() {
+        return calcStep;
+    }
+
+    @Override
     public void setCurrentNumber(double currentNumber) {
         this.currentNumber = currentNumber;
     }
@@ -45,11 +51,16 @@ public class CalcLogic_impl implements CalcLogic {
     }
 
     @Override
+    public void setCalcStep(String calcStep) {
+        this.calcStep = calcStep;
+    }
+
+    @Override
     public void clear() {
         this.currentNumber = 0;
         this.storedNumber = 0;
         this.isInputNum = true;
-
+        this.calcStep = "";
     }
     /**
      * - Wrapper method
@@ -72,12 +83,16 @@ public class CalcLogic_impl implements CalcLogic {
         }
         double result = 0;
         if (operator.equals("+")) {
+            calcStep = String.valueOf(storedNumber) + " + " + String.valueOf(currentNumber);
             result = storedNumber + currentNumber;
         } else if (operator.equals("-")) {
+            calcStep = String.valueOf(storedNumber) + " - " + String.valueOf(currentNumber);
             result = storedNumber - currentNumber;
         } else if (operator.equals("*")) {
+            calcStep = String.valueOf(storedNumber) + " * " + String.valueOf(currentNumber);
             result = storedNumber * currentNumber;
         } else if (operator.equals("/")) {
+            calcStep = String.valueOf(storedNumber) + " / " + String.valueOf(currentNumber);
             if (storedNumber == 0 || currentNumber == 0) {
                 return;
             } else {
